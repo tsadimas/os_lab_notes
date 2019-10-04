@@ -1,0 +1,275 @@
+\ProvidesPackage{oslab}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Large Colored Title Article
+% LaTeX Template
+% Version 1.0 (15/8/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+
+
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+%\usepackage[english]{babel} % English language/hyphenation
+%\usepackage[protrusion=true,expansion=true]{microtype} % Better typography
+\usepackage{amsmath,amsfonts,amsthm,amssymb} % Math packages
+\usepackage[table,svgnames]{xcolor} % Enabling colors by their 'svgnames'
+%\usepackage[table]{xcolor} 
+\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+\usepackage{fix-cm}	 % Custom font sizes - used for the initial letter in the document
+
+\usepackage{sectsty} % Enables custom section titles
+%\allsectionsfont{\usefont{OT1}{phv}{b}{n}} % Change the font of all section commands
+
+\usepackage{fancyhdr} % Needed to define custom headers/footers
+\pagestyle{fancy} % Enables the custom headers/footers
+\usepackage{lastpage} % Used to determine the number of pages in the document (for "Page X of Total")
+
+% Headers - all currently empty
+\lhead{}
+\chead{}
+\rhead{}
+
+% Footers
+\lfoot{}
+\cfoot{}
+\rfoot{\footnotesize Page \thepage\ of \pageref{LastPage}} % "Page 1 of 2"
+
+\renewcommand{\headrulewidth}{0.0pt} % No header rule
+\renewcommand{\footrulewidth}{0.4pt} % Thin footer rule
+
+\usepackage{lettrine} % Package to accentuate the first letter of the text
+\newcommand{\initial}[1]{ % Defines the command and style for the first letter
+\lettrine[lines=3,lhang=0.3,nindent=0em]{
+\color{teal}
+{\textsf{#1}}}{}}
+
+
+\usepackage{enumerate}
+%\usepackage[dvipdfm]{graphicx}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage{xgreek}
+
+\setmainfont[Mapping=tex-text]{SF Pro Display}
+\setsansfont[Mapping=tex-text]{SF Pro Display}
+%\setmonofont[Mapping=tex-text]{InputMono}
+\setmonofont[Mapping=tex-text]{Dank Mono}
+%\setmonofont[Mapping=tex-text]{Hack Nerd Font}
+
+\newenvironment{packed_item}{
+\begin{itemize}
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{itemize}}
+
+\newenvironment{packed_enum}{
+\begin{enumerate}
+ \setlength{\itemsep}{0pt}
+ \setlength{\parsep}{0pt}
+ \setlength{\topsep}{0pt}
+ \setlength{\partopsep}{0pt}
+ \setlength{\leftmargin}{0.5em}
+ \setlength{\labelwidth}{0.5em}
+ \setlength{\labelsep}{0.5em} 
+}{\end{enumerate}}
+
+
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{colortbl}
+
+\usepackage[
+type={CC},
+modifier={by-nc-sa},
+version={3.0},
+]{doclicense}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\lhead{\footnotesize {Λειτουργικά Συστήματα} }
+\lfoot{\footnotesize \doclicenseIcon}
+\cfoot{}
+\rhead{\footnotesize {\textbf{Εργαστήριο $1^o$} :  \today}}
+%\cfoot{\footnotesize \today}
+\rfoot{\footnotesize Σελίδα \thepage\ από \pageref{LastPage}}
+\renewcommand{\headheight}{24pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+%\renewcommand\headrule{\vspace{-8pt}}
+%\setlanguage{monogreek}
+
+%\usepackage[utf8x]{inputenc}
+%\usepackage[greek]{babel}
+\usepackage{listings}
+%\lstloadlanguages{C}
+\lstdefinelanguage{rock}
+{morekeywords={if, elif, done, else, in, fi, case, esac, then, for , do, while, until, break, select, continue},
+sensitive=false,
+morecomment=[l]{//},
+morecomment=[s]{/*}{*/},
+morestring=[b]",
+}
+\lstset{language=rock,commentstyle=\scriptsize,frameround=fttt,basicstyle=\ttfamily,}
+%rg
+\usepackage{color}
+\usepackage{textcomp}
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+\definecolor{bittersweet}{rgb}{1.0, 0.44, 0.37}
+\definecolor{mountainmeadow}{rgb}{0.19, 0.73, 0.56}
+\definecolor{palecarmine}{rgb}{0.69, 0.25, 0.21}
+\definecolor{sapgreen}{rgb}{0.31, 0.49, 0.16}
+\definecolor{sacramentostategreen}{rgb}{0.0, 0.34, 0.25}
+\definecolor{teal}{rgb}{0.0, 0.5, 0.5}
+\definecolor{ballblue}{rgb}{0.13, 0.67, 0.8}
+\definecolor{babyblue}{rgb}{0.54, 0.81, 0.94}
+\definecolor{bluegray}{rgb}{0.4, 0.6, 0.8}
+\definecolor{coral}{rgb}{1.0, 0.5, 0.31}
+\definecolor{mintgreen}{rgb}{0.6, 1.0, 0.6}
+\definecolor{bittersweet}{rgb}{1.0, 0.44, 0.37}
+\definecolor{lightgray}{gray}{0.9}
+\definecolor{ufogreen}{rgb}{0.24, 0.82, 0.44}
+\definecolor{turquoise}{rgb}{0.19, 0.84, 0.78}
+\definecolor{tiffanyblue}{rgb}{0.04, 0.73, 0.71}
+\definecolor{shamrockgreen}{rgb}{0.0, 0.62, 0.38}
+
+
+
+\sectionfont{\color{turquoise!65!black}}
+\subsectionfont{\color{turquoise!65!black}}
+\subsubsectionfont{\color{turquoise!65!black}}
+
+
+%\usepackage{textcomp}
+\usepackage{upquote}
+\lstset{
+  backgroundcolor=,
+  tabsize=4,
+  rulecolor=,
+  language=rock,
+        %basicstyle=\scriptsize,
+        upquote=true,
+        aboveskip={1.0\baselineskip},
+        columns=fixed,
+        showstringspaces=false,
+        extendedchars=true,
+        breaklines=false,
+        prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+        frame=lines,
+        showtabs=false,
+        showspaces=false,
+        showstringspaces=false,
+        identifierstyle=\ttfamily,
+		basicstyle=\small\ttfamily,columns=fullflexible,
+        keywordstyle=\color[rgb]{0,0,1},
+        commentstyle=\color[rgb]{0.133,0.545,0.133},
+        stringstyle=\color[rgb]{0.627,0.126,0.941},
+        literate=
+        {"}{{\fontencoding{T1}\selectfont\textquotedbl}}1
+		{'}{{\fontencoding{T1}\selectfont\textquotesingle}}1,
+}
+
+
+
+\newcommand{\qq}{\symbol{34}} % 34 is the decimal ascii code for "
+
+\usepackage{lastpage}
+\usepackage{epigraph}
+
+
+\usepackage[urlbordercolor=turquoise]{hyperref}
+\usepackage[compact]{titlesec}
+\titlespacing*{\section}{10pt}{10pt}{5pt}
+\usepackage{verbatim} 
+
+
+%boxQ
+%\tcbuselibrary{skins,hooks}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\usetikzlibrary{patterns}
+\tcbuselibrary{skins} 
+
+%\newtcolorbox{mybox}{colback=red!5!white,colframe=red!75!black}
+\newtcolorbox{mybox}[1]{colback=white!10,colframe=turquoise!65!black,fonttitle=\bfseries,title=#1}
+\newtcolorbox{exercisebox}[1]{colback=white!10,colframe=turquoise!65!black,fonttitle=\bfseries,title=#1}
+\newtcolorbox{warningbox}[1]{colback=white!10,colframe=turquoise!65!black,fonttitle=\bfseries,title=#1}
+
+
+\tcbset{
+	frogbox/.style={
+		enhanced,
+		colback=white!10,
+		colframe=turquoise!65!black,
+		enlarge top by=5.5mm,
+		overlay={
+			\foreach \x in {2cm,3.5cm} {
+				\begin{scope}[shift={([xshift=\x]frame.north west)}]
+					\path[draw=turquoise!65!black,fill=turquoise!10,line width=1mm] (0,0) arc (0:180:5mm);
+					\path[fill=black] (-0.2,0) arc (0:180:1mm);
+				\end{scope}
+			}
+		}
+	}
+}
+
+\tcbset{
+	app/.style={
+		overlay app={%
+			\draw(frame.north)--(frame.south);
+		}
+	}
+}
+
+
+
+\tcbset{fancybox/.style={enhanced,colback=white,colframe=green!65!black,
+		enlarge top by=5mm,
+		overlay={%
+			\path[fill=blue!65,line width=.4mm] (frame.north west)--++(11mm,0)coordinate(n2)--++(0,8mm)--++(-8mm,0) arc (-90:90:-4mm)--cycle;
+			\node at ([shift={(5mm,4mm)}]frame.north west){\color{white}{\textbf{\sffamily ΔΕΙΤΕ}}};
+			%\path[fill=green!65!blue] ([xshift=.4mm]n2)--++(0,8mm)--++(7mm,0)--++(0,-8mm)--cycle;
+			%\node at ([shift={(4mm,4mm)}]n2){\color{white}{\textbf{\sffamily \themycounter}}};
+			\node at ([shift={(10mm,4mm)}]n2){\itshape\textbf{\sffamily Solution}};
+}}}
+
+\usepackage{pifont}
+
+
+\usepackage{lscape}
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+\usepackage{titling} 
+\newcommand{\HorRule}{\color{turquoise!65!black} \rule{\linewidth}{1pt}} 
+\pretitle{\vspace{-30pt} \begin{flushleft} \HorRule \fontsize{30}{30}  \color{turquoise!65!black} \selectfont} 
+\title{Εργαστήριο $1^o$ : Εισαγωγή στο UNIX} 
+\posttitle{\par\end{flushleft}}
+\preauthor{\begin{flushleft}\large  \color{turquoise!65!black}}
+\author{\href{http://tsadimas.eu}{Τσαδήμας Ανάργυρος,} } 
+\postauthor{\footnotesize \color{Black} 
+\href{http://www.dit.hua.gr}{Τμήμα Πληροφορικής \& Τηλεματικής} 
+\par\end{flushleft}\HorRule} 
+\date{} 
+%----------------------------------------------------------------------------------------
+
+\endinput
