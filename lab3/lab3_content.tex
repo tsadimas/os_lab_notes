@@ -41,7 +41,7 @@
 
 Τέλος να αναφέρουμε την ανακατεύθυνση εξόδου λαθών. Η σύνταξη είναι της μορφής \textbf{εντολή 2> όνομα-αρχείου}.    Ισχύει ότι και στην
 περίπτωση της ανακατεύθυνσης εξόδου, μόνο που τώρα στο αρχείο εξόδου σώζονται τα
-διαγνωστικά μηνύματα λάθους. Δοκιμάστε το!
+διαγνωστικά μηνύματα λάθους. Δοκιμάστε το!. Επίσης ισχύει και το $2>>$.
 
 \emph{Σημείωση:} Στους φλοιούς sh, ksh και bash η ανακατεύθυνση λαθών γίνεται με το 2$>$ ή το 2$>>$. Στους φλοιούς csh και tcsh χρησιμοποιούμε
 τα $>$\& και $>>$\&. Αυτό επίσης δουλεύει στον bash αλλά όχι στους sh και ksh. \footnote{Δείτε περισσότερα στο \href{https://goo.gl/JqJEgw}{https://goo.gl/JqJEgw} και στο \href{https://goo.gl/2PN263}{https://goo.gl/2PN263}}
@@ -149,11 +149,19 @@ ls -lh | awk '{print $5 "\t" $9}'
 Ένας BEGIN κανόνας εκτελείται μόνο μια φορά, πριν την ανάγνωση της πρώτης εγγραφής. Παρόμοια, ο κανόνας END εκτελείται μόνο μια φορά, μόλις όλο το input έχει αναγνωστεί.
 
 \begin{lstlisting}
-cat /etc/passwd | awk 'BEGIN 
-{print "Start of reading"} {FS=":"} 
-{++n}{print  $1 } 
+cat /etc/passwd |
+awk 'BEGIN {FS=":";print "Start of reading"}
+{++n;print  $1 }
 END {print n,"rows read"}'
 \end{lstlisting}
+
+Αν θέλαμε να τυπώσουμε το χρήστη, το home directory και το default shell για κάθε χρήστη, θα γράφαμε:
+
+\begin{lstlisting}
+awk 'BEGIN{FS=":"; OFS="-"} 
+{print $1,$6,$7}' /etc/passwd
+\end{lstlisting}
+
 
 \begin{center}
 	\begin{table*}[h]
@@ -243,7 +251,7 @@ sed -E -n '/^(.)o\1$/p'
 /usr/share/dict/words
 \end{lstlisting}
 
-Η παράμετρος -Ε είναι ίδια με το -r ενώ η παράμετροε -n σημαίνει ότι θα τυπώσει μόνο τα patterns που βρήκε κι όχι όλα τα δεδομένα που επεξεργάστηκε \href{https://goo.gl/p7qErM}{https://goo.gl/p7qErM}.
+Η παράμετρος -Ε είναι ίδια με το -r ενώ η παράμετρος -n σημαίνει ότι θα τυπώσει μόνο τα patterns που βρήκε κι όχι όλα τα δεδομένα που επεξεργάστηκε \href{https://goo.gl/p7qErM}{https://goo.gl/p7qErM}.
 \subsubsection{Sed Pattern Flags}
 \paragraph{/g: Global Replacement}
 Το sed αντικαθιστά το πρώτο pattern που θα βρει (σε μια γραμμή). Αν θέλουμε να αλλάξουν όλα τα occurences θα πρέπει να χρησιμοποιήσουμε το g μετά το τελευταίο delimiter.
